@@ -1,6 +1,10 @@
 def parse_description(description):
     data = {}
-    lines = description.splitlines("\n")
+
+    if not description:
+        return data
+
+    lines = description.splitlines()
 
     for line in lines:
         if ":" in line:

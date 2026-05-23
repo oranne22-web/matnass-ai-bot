@@ -8,24 +8,29 @@ class AgentState(TypedDict):
 
 def activity_agent(state: AgentState) -> AgentState:
     user_message = state["user_input"]
-
     activities = get_activities()
 
     results = []
     if "ספורט" in user_message:
-        for activity in activities:
-            if "ספורט" in activity.get("category", "") :
-                results.append(activity.get("title"))
+        results = [
+            a.get("title")
+            for a in activities
+            if "ספורט" in a.get("category","")
+        ]
     elif "נוער" in user_message or "נערים" in user_message:
-        for activity in activities:
-            if "נערים" in activity.get("title", "") or "נוער" in activity.get("title", ""):
-                results.append(activity.get("title"))
+        results = [
+            a.get("title")
+            for a in activities
+            if "נוער" in a.get("title","")
+        ]
     elif "חוג עיון" in user_message or "סדנאות" in user_message or "סדנה" in user_message:
-        for activity in activities:
-            if "חוג עיון" in activity.get("category"):
-                results.append(activity.get("title"))
-    else:
-        results.append("לא נמצאו פעילויות מתאימות")
+        results = [
+            a.get("title")
+            for a in activities
+            if "חוג עיון" in a.get("category","")
+        ]
+    if not results:
+        results = ["לא נמצאו פעילויות מתאימות"]
 
     state["result"] = ", ".join(results)
     return state
