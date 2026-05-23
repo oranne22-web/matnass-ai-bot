@@ -25,7 +25,7 @@ if question:
         "user_input": question
     })
 
-    response = result["result"]
+    response = result.get("result", "לא נמצאו תשובה")
 
     with st.chat_message("assistant"):
         st.markdown(response)
