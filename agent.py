@@ -53,7 +53,8 @@ def fetch_activities(state: AgentState) -> AgentState:
         state["result"] = "לא נמצאו פעילויות מתאימות"
     else:
         state["result"] = "להלן הפעילויות שנמצאו:\n\n- " + "\n- ".join(unique_results)
-        return state
+
+    return state
 
 
 
