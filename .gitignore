@@ -1,2 +1,7 @@
 credentials.json
+credentials.json.json
 _pycharm_/
+token.json
+token.pickle
+.idea/
+__pycache__/
