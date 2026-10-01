@@ -10,7 +10,7 @@ Streamlit as a chatbot interface
 Python
 
 System Architecture:
-Google Calendar -> Ingestion Pipeline -> Parser -> LangGraph AI Agent -> Streamlit Interface
+User → Streamlit → LangGraph → Gemini → Google Calendar → Ingestion/Parser → Filtering → Response
 
 AI Agent Features:
 intent detection (sport/ youth/ workshops/ general)
@@ -36,4 +36,4 @@ https://calendar.google.com/calendar/u/0?cid=OWJhMjU5OWZjYmNmN2E1YzJmMWM2YTgzZWE
 How to run the project:
  pip install -r requirements.txt
  python ingest.py
- streamlit run streamlit.py
+ streamlit run streamlit_code.py
